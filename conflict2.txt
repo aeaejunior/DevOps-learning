@@ -1,0 +1,3 @@
+Start of file
+Common line
+Line to change
