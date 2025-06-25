@@ -1,16 +1,16 @@
-name: Run Tests
+name: Run Tests and Build
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  test:
+  test-and-build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Run test script
-        run: ./test.sh
+    - name: Run test and build script
+      run: ./test.sh
