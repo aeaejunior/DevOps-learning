@@ -1,19 +1,17 @@
-name: Run Tests with Environment Variable
+name: Matrix Test
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  test:
+  greet:
     runs-on: ubuntu-latest
 
-    env:
-      GREETING: "👋 Hello from ENV"
+    strategy:
+      matrix:
+        greeting: ["Hello 🌍", "Hola 🌎", "Bonjour 🌏"]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Use environment variable
-        run: echo "$GREETING"
+      - name: Print greeting
+        run: echo "${{ matrix.greeting }}"
