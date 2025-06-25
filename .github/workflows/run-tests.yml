@@ -1,16 +1,22 @@
-name: Run Tests and Build
+name: Run Tests and Deploy
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  test-and-build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Run test and build script
-      run: ./test.sh
+      - name: Run test script
+        run: ./test.sh
+
+      - name: Build app
+        run: echo "🏗️ Building the app..."
+
+      - name: Deploy
+        run: echo "🚀 Deploying to production..."
