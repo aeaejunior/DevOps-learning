@@ -1,4 +1,4 @@
-name: Run Tests and Deploy
+name: Run Tests with Environment Variable
 
 on:
   push:
@@ -8,15 +8,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      GREETING: "👋 Hello from ENV"
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run test script
-        run: ./test.sh
-
-      - name: Build app
-        run: echo "🏗️ Building the app..."
-
-      - name: Deploy
-        run: echo "🚀 Deploying to production..."
+      - name: Use environment variable
+        run: echo "$GREETING"
